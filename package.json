@@ -18,7 +18,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "dependencies": {
@@ -44,7 +45,9 @@
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
     "vue-jest": "^4.0.0-0",
-    "cz-conventional-changelog": "3.1.0"
+    "cz-conventional-changelog": "3.1.0",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/cli": "^8.3.5"
   },
   "config": {
     "commitizen": {
