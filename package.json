@@ -23,9 +23,9 @@
   },
   "dependencies": {
     "nuxt": "^2.0.0",
-    "ant-design-vue": "^1.1.10",
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/dotenv": "^1.4.0"
+    "@nuxtjs/dotenv": "^1.4.0",
+    "ant-design-vue": "^1.1.10"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
@@ -43,6 +43,12 @@
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "cz-conventional-changelog": "3.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

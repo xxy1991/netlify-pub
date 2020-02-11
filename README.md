@@ -1,5 +1,7 @@
 # netlify-pub
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 > My brilliant Nuxt.js project
 
 ## Build Setup
