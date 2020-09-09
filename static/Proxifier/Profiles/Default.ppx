@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxifierProfile version="101" platform="Windows" product_id="0" product_minver="310">
+  <Options>
+    <Resolve>
+      <AutoModeDetection enabled="false" />
+      <ViaProxy enabled="false">
+        <TryLocalDnsFirst enabled="false" />
+      </ViaProxy>
+      <ExclusionList>%ComputerName%; localhost; *.local; *.ori.fyi; *.xmgldc.com</ExclusionList>
+      <DnsUdpMode>0</DnsUdpMode>
+    </Resolve>
+    <Encryption mode="basic" />
+    <HttpProxiesSupport enabled="false" />
+    <HandleDirectConnections enabled="false" />
+    <ConnectionLoopDetection enabled="true" />
+    <ProcessServices enabled="false" />
+    <ProcessOtherUsers enabled="false" />
+  </Options>
+  <ProxyList>
+    <Proxy id="100" type="SOCKS5">
+      <Address>127.0.0.1</Address>
+      <Port>6969</Port>
+      <Options>48</Options>
+    </Proxy>
+    <Proxy id="101" type="HTTPS">
+      <Address>127.0.0.1</Address>
+      <Port>6969</Port>
+      <Options>48</Options>
+    </Proxy>
+    <Proxy id="102" type="SOCKS5">
+      <Address>127.0.0.1</Address>
+      <Port>8888</Port>
+      <Options>48</Options>
+    </Proxy>
+    <Proxy id="103" type="HTTPS">
+      <Address>192.168.88.222</Address>
+      <Port>2080</Port>
+      <Options>48</Options>
+    </Proxy>
+  </ProxyList>
+  <ChainList />
+  <RuleList>
+    <Rule enabled="false">
+      <Name>DirectALL</Name>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>Shadowsocks Passthrough</Name>
+      <Applications>Shadowsocks*.exe</Applications>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>PowerCLI</Name>
+      <Applications>powershell.exe</Applications>
+      <Action type="Proxy">101</Action>
+    </Rule>
+    <Rule enabled="false">
+      <Name>ProxyApp</Name>
+      <Targets>TeamViewer*.exe</Targets>
+      <Action type="Proxy">100</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>ProxyDomain</Name>
+      <Targets>*.hk; *.tw; *.us; *.jp; *.io; *.pl</Targets>
+      <Action type="Proxy">100</Action>
+    </Rule>
+    <Rule enabled="true">
+      <Name>ChinaApp</Name>
+      <Applications>Youdao*.exe; QQ*.exe; WeChat*.exe; Sogou*.exe; Baidu*.exe; CloudHub*.exe</Applications>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>ChinaGame</Name>
+      <Applications>eve*.exe; exefile.exe; Worldoftanks.exe</Applications>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>ChinaDomain</Name>
+      <Targets>*.cn; *.baidu.com; *.qq.com; *.126.net; *.163.com; *.youdao.com; *.sogou.com; *.dida365.com; *.139.com; *.vivi.com; *.ori.fyi; *.xmgldc.com</Targets>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>Browser Passthrough</Name>
+      <Applications>chrome*.exe; IEXPLORE*.exe; firefox*.exe</Applications>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>Downloads Passthrough</Name>
+      <Applications>*Thunder*.exe; DownloadSDKServer.exe; BiglyBT.exe</Applications>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>Other Passthrough</Name>
+      <Applications>*word*; *excel*; vmware*; Xshell.exe; Xftp.exe; BCompare.exe; Fiddler.exe</Applications>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="false">
+      <Name>setup</Name>
+      <Applications>setup.exe</Applications>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>Localhost</Name>
+      <Targets>localhost; 127.0.0.1; %ComputerName%; 10.*.*.*; 192.168.*.*</Targets>
+      <Action type="Direct" />
+    </Rule>
+    <Rule enabled="true">
+      <Name>Default</Name>
+      <Action type="Proxy">100</Action>
+    </Rule>
+  </RuleList>
+</ProxifierProfile>
