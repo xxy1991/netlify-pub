@@ -1,0 +1,29 @@
+name: Push to Alibaba Cloud OSS
+
+on:
+  push:
+    branches: [ develop ]
+
+env:
+  BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+  ENDPOINT: ${{ secrets.ENDPOINT }}
+  ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+  ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - run: npm install
+      - name: Generate static files
+        run: npm run generate
+      - name: Install Alibaba Cloud ossutil
+        run: wget http://gosspublic.alicdn.com/ossutil/1.6.19/ossutil64 && chmod +x ossutil64
+      - name: Configure Alibaba Cloud ossutil
+        run: ./ossutil64 config -i ${ACCESS_KEY} -k ${ACCESS_KEY_SECRET} -e ${ENDPOINT} -c .ossutilconfig
+      - name: Upload the dist folder to the chosen OSS bucket
+        run: ./ossutil64 --config-file .ossutilconfig cp ${{ github.workspace }}/dist oss://${BUCKET_NAME} -r -f
