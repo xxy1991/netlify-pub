@@ -45,8 +45,8 @@
       <Action type="Direct" />
     </Rule>
     <Rule enabled="true">
-      <Name>Shadowsocks Passthrough</Name>
-      <Applications>Shadowsocks*.exe</Applications>
+      <Name>Tunnel Passthrough</Name>
+      <Applications>Shadowsocks*.exe; v2ray.exe; wv2ray.exe</Applications>
       <Action type="Direct" />
     </Rule>
     <Rule enabled="true">
@@ -61,7 +61,7 @@
     </Rule>
     <Rule enabled="true">
       <Name>ProxyDomain</Name>
-      <Targets>*.hk; *.tw; *.us; *.jp; *.io; *.pl</Targets>
+      <Targets>*.hk; *.tw; *.us; *.jp; *.io; *.pl; *.dropboxapi.com</Targets>
       <Action type="Proxy">100</Action>
     </Rule>
     <Rule enabled="true">
@@ -86,12 +86,12 @@
     </Rule>
     <Rule enabled="true">
       <Name>Downloads Passthrough</Name>
-      <Applications>*Thunder*.exe; DownloadSDKServer.exe; BiglyBT.exe</Applications>
+      <Applications>*Thunder*.exe; DownloadSDKServer.exe; BiglyBT.exe; Dropbox.exe</Applications>
       <Action type="Direct" />
     </Rule>
     <Rule enabled="true">
       <Name>Other Passthrough</Name>
-      <Applications>*word*; *excel*; vmware*; Xshell.exe; Xftp.exe; BCompare.exe; Fiddler.exe</Applications>
+      <Applications>*word*; *excel*; vmware*; Xshell.exe; XshellCore.exe; Xftp.exe; BCompare.exe; Fiddler.exe</Applications>
       <Action type="Direct" />
     </Rule>
     <Rule enabled="false">
